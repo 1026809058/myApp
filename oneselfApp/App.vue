@@ -13,6 +13,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('static/style/global.css');
+@import './static/style/global.scss';
 /*每个页面公共css */
 </style>
