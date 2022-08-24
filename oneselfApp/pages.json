@@ -10,7 +10,7 @@
 				        "backgroundColor":"rgba(192,192,192,0.5)",
 				        "buttons":[
 				          {
-				            "type":"share"
+				            // "type":"share"
 				          }
 				        ]
 				      }
@@ -23,6 +23,7 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+		
 	},
 	"uniIdRouter": {}
 }
