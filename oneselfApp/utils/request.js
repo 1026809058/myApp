@@ -4,25 +4,24 @@ import {
 	requestTimeout,
 	successCode,
 	tokenName,
+	cookie
 } from '@/config'
-import store from '@/store'
+// import store from '@/store'
 import qs from 'qs' // 处理data
-
-// 操作正常Code数组
-const codeVerificationArray = isArray(successCode) ? [...successCode] : [...[successCode]],
 const request = (options) => {
 	return new Promise((resolve, reject) => {
 		uni.request({
 			url: baseURL + options.url, //接口地址：前缀+方法中传入的地址
 			method: options.method || 'GET', //请求方法：传入的方法或者默认是“GET”
 			data: options.data || {}, //传递参数：传入的参数或者默认传递空集合
-			responseType: options.responseType: 'arraybuffer',
+			responseType: options.responseType || 'arraybuffer',
 			headers: {
 				'Content-Type': contentType,
-			},
+				'Cookie': cookie,
+				},
 			//设置请求头token
-			const token = store.getters['user/accessToken']
-			if (token) options.headers[tokenName] = token,
+			// const token = store.getters['user/accessToken']
+			// if (token) options.headers[tokenName] = token,
 			//超时设置
 			timeout: requestTimeout,
 			success: (res) => {
@@ -34,6 +33,9 @@ const request = (options) => {
 				// 	})
 				// }
 				// 如果不满足上述判断就输出数据
+				if (res.code !== 200) {
+					reject(res)
+				}
 				resolve(res)
 			},
 			// 这里的接口请求，如果出现问题就输出接口请求失败

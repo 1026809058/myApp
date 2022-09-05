@@ -8,38 +8,51 @@
 			</view>
 		</view>
 		<view class="content">
-			<view class="content-vessel" id="contentVessel" :style="{marginTop:statusbarHeight}"><Card height="1600rpx">12311231321312312</Card></view>
+			<view class="content-vessel" id="contentVessel" :style="{ marginTop: statusbarHeight }">
+				<!-- <swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
+					<swiper-item><view class="swiper-item uni-bg-red">A</view></swiper-item>
+					<swiper-item><view class="swiper-item uni-bg-green">B</view></swiper-item>
+					<swiper-item><view class="swiper-item uni-bg-blue">C</view></swiper-item>
+				</swiper> -->
+			</view>
+		</view>
+		<view class="player-con">
+			<Player></Player>
 		</view>
 	</view>
 </template>
 
 <script>
 import Card from '@/pages/component/Card.vue';
+import {Player} from '@/pages/component/player/index.vue'
 export default {
-	components: { Card },
+	components: { Card,Player },
 	data() {
 		return {
+			
+			//搜索框显示文字
 			defaultSearch: '默认搜索',
-			statusbarHeight:"20rpx",
-			getSystemInfo:{},
+			//顶部栏高度
+			statusbarHeight: '20rpx',
+			//系统信息
+			getSystemInfo: {}
 		};
 	},
-		created() {
-			
-		},
-		mounted(){
-			const query = uni.createSelectorQuery().in(this);
-			query.select('#navBar').boundingClientRect(data => {
-				
-				this.statusbarHeight=data.height+'px'
-			  console.log("得到布局位置信息" + JSON.stringify(data));
-			  console.log("节点离页面顶部的距离为" + data.top);
-			}).exec();
-			
-		},
+	created() {},
+	mounted() {
+		const query = uni.createSelectorQuery().in(this);
+		query
+			.select('#navBar')
+			.boundingClientRect(data => {
+				this.statusbarHeight = data.height + 'px';
+				console.log('得到布局位置信息' + JSON.stringify(data));
+				console.log('节点离页面顶部的距离为' + data.top);
+			})
+			.exec();
+	},
 	onLoad() {
-		let getSystemInfo=uni.getStorageSync('getSystemInfo')
-		this.getSystemInfo=JSON.parse(getSystemInfo)
+		let getSystemInfo = uni.getStorageSync('getSystemInfo');
+		this.getSystemInfo = JSON.parse(getSystemInfo);
 	},
 
 	methods: {}
@@ -69,6 +82,7 @@ export default {
 		color: rgb(245, 247, 249);
 		font-size: 20rpx;
 		text-align: center;
+		line-height: 50rpx;
 	}
 }
 .content {
@@ -79,5 +93,10 @@ export default {
 		height: 500rpx;
 		overflow-y: auto;
 	}
+}
+.player-con{
+	position: absolute;
+	bottom: 0;
+	z-index: 999;
 }
 </style>

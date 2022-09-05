@@ -24,7 +24,7 @@ export default {
 		}
 			
 	//隐藏官方的tabBar
-	uni.hideTabBar()
+	// uni.hideTabBar()
 		console.log('App Show');
 	},
 	onHide: function() {
