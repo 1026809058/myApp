@@ -1,0 +1,26 @@
+// @import '~@/static/style/mixin.scss';
+
+// 毛玻璃  @include  ground-glass(2)
+@mixin ground-glass($val:2){
+	-webkit-filter: blur($val); /* Chrome, Opera */
+	-moz-filter: blur($val);
+	-ms-filter: blur($val);
+	filter: blur($val);
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=2, MakeShadow=false); /* IE6~IE9 */
+}
+
+//背景图片属性设置 居中，适应大小，不平铺 @include background-img(url)
+@mixin background-img($url,$position:50%,$size:100%,$repeat:no-repeat){
+	background-image:url($url);
+	background-position: $position;
+	background-size: $size;
+	background-repeat: $repeat;
+}
+
+//水平垂直居中 @include horizontal-vertical-center()
+@mixin horizontal-vertical-center($position:relative){
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}

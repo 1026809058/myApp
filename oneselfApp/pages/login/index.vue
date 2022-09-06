@@ -94,7 +94,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/static/style/themes.scss';
 .login {
 	height: 100vh;
 	background-color: #f03752;
@@ -113,7 +112,6 @@ export default {
 		left: calc(50% - 250rpx);
 		transform-origin: 50% 0;
 		overflow: hidden;
-		// @include  ground-glass
 		// border: 10rpx solid #fff;
 		.login-title {
 			color: #fff;

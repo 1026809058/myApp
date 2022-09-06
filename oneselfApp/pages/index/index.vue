@@ -24,7 +24,7 @@
 
 <script>
 import Card from '@/pages/component/Card.vue';
-import {Player} from '@/pages/component/player/index.vue'
+import Player from '@/pages/component/player/index.vue'
 export default {
 	components: { Card,Player },
 	data() {
@@ -60,6 +60,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '~@/static/style/mixin.scss';
 .home {
 	height: 100%;
 }
@@ -86,6 +87,7 @@ export default {
 	}
 }
 .content {
+		@include background-img('~@/static/img/vinyl_record.png',50%,80%,no-repeat);
 	position: fixed;
 	height: calc(100% - 100rpx);
 	width: 100%;
@@ -95,6 +97,7 @@ export default {
 	}
 }
 .player-con{
+	width: 100%;
 	position: absolute;
 	bottom: 0;
 	z-index: 999;

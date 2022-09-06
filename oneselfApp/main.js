@@ -1,10 +1,13 @@
 import App from './App'
+import Vuex from 'vuex'
+import store from './store'
 
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({
+	store,
     ...App
 })
 app.$mount()
