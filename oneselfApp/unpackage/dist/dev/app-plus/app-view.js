@@ -1392,6 +1392,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniIcons: __webpack_require__(/*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 5)
+      .default
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -1415,9 +1437,34 @@ var render = function() {
       _c("uni-view", { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } }, [
         _vm._v("info")
       ]),
-      _c("uni-view", { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } }, [
-        _vm._v("operating")
-      ])
+      _c(
+        "uni-view",
+        { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+        [
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+            [
+              _c("uni-icons", {
+                attrs: { _i: 6 },
+                on: {
+                  click: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+            [_c("uni-icons", { attrs: { _i: 8 } })],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -1515,7 +1562,7 @@ exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.player[data-v-dfcf4ea2] {\r\n  height: 100rpx;\r\n  width: 100%;\r\n  display: flex;\n}\n.player .jukebox[data-v-dfcf4ea2] {\r\n  width: 100rpx;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-position: 50%;\r\n  background-size: 80%;\r\n  background-repeat: no-repeat;\n}\n.player .jukebox .jukebox-poster[data-v-dfcf4ea2] {\r\n  width: 55%;\r\n  height: 55%;\r\n  background-color: antiquewhite;\r\n  border-radius: 50%;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-position: 50%;\r\n  background-size: 100%;\r\n  background-repeat: no-repeat;\n}\n.player .play-begin[data-v-dfcf4ea2] {\r\n  -webkit-animation: playing-data-v-dfcf4ea2 5s linear infinite;\r\n          animation: playing-data-v-dfcf4ea2 5s linear infinite;\r\n  -webkit-animation-fill-mode: forwards;\r\n          animation-fill-mode: forwards;\n}\n.player .play-end[data-v-dfcf4ea2] {\r\n  -webkit-animation-play-state: paused;\r\n          animation-play-state: paused;\n}\n@-webkit-keyframes playing-data-v-dfcf4ea2 {\n0% {\r\n    -webkit-transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\n}\n}\n.player .info[data-v-dfcf4ea2] {\r\n  flex: 1;\r\n  background-color: aquamarine;\n}\n.player .operating[data-v-dfcf4ea2] {\r\n  width: 200rpx;\r\n  background-color: bisque;\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.player[data-v-dfcf4ea2] {\r\n  height: 100rpx;\r\n  width: 100%;\r\n  display: flex;\n}\n.player .jukebox[data-v-dfcf4ea2] {\r\n  width: 100rpx;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-position: 50%;\r\n  background-size: 80%;\r\n  background-repeat: no-repeat;\n}\n.player .jukebox .jukebox-poster[data-v-dfcf4ea2] {\r\n  width: 55%;\r\n  height: 55%;\r\n  background-color: antiquewhite;\r\n  border-radius: 50%;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-position: 50%;\r\n  background-size: 100%;\r\n  background-repeat: no-repeat;\n}\n.player .play-begin[data-v-dfcf4ea2] {\r\n  -webkit-animation: playing-data-v-dfcf4ea2 5s linear infinite;\r\n          animation: playing-data-v-dfcf4ea2 5s linear infinite;\r\n  -webkit-animation-fill-mode: forwards;\r\n          animation-fill-mode: forwards;\n}\n.player .play-end[data-v-dfcf4ea2] {\r\n  -webkit-animation: playing-data-v-dfcf4ea2 5s linear infinite;\r\n          animation: playing-data-v-dfcf4ea2 5s linear infinite;\r\n  -webkit-animation-play-state: paused;\r\n          animation-play-state: paused;\n}\n@-webkit-keyframes playing-data-v-dfcf4ea2 {\n0% {\r\n    -webkit-transform: rotate(0deg);\n}\n100% {\r\n    -webkit-transform: rotate(360deg);\n}\n}\n.player .info[data-v-dfcf4ea2] {\r\n  flex: 1;\r\n  background-color: aquamarine;\n}\n.player .operating[data-v-dfcf4ea2] {\r\n  width: 200rpx;\n}\n.player .operating .operat-play[data-v-dfcf4ea2] {\r\n  width: 50%;\r\n  height: 100%;\r\n  float: left;\r\n  text-align: center;\n}\n.player .operating .operat-list[data-v-dfcf4ea2] {\r\n  width: 50%;\r\n  height: 100%;\r\n  float: left;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
