@@ -12,6 +12,7 @@ const player = function() {
 		store.commit('player/playStatus',false)
 	});
 	innerAudioContext.onError((res) => {
+		console.log(res,11);
 		console.log(res.errMsg);
 		console.log(res.errCode);
 	});
