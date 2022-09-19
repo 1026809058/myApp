@@ -26,7 +26,11 @@ export default {
 			messageText: '这是一条成功提示',
 			loading: false,
 			logoUrl: require('@/static/logo/logo_wrj.png'),
-			formData: {},
+			formData: {
+				phone:17353166287,
+				password:13272911208
+				
+			},
 			//输入框样式
 			inputStyle: {
 				color: '#000',
@@ -67,14 +71,29 @@ export default {
 					this.loading = true;
 					login(param)
 						.then(res => {
-							//返回前一个页面
-							getCurrentPages({
-								delta: 1
-							});
+							console.log(res, 3333);
+							if (res.code === 200) {
+								let info = { ...this.formData, ...res.profile };
+								console.log(info,8);
+								uni.setStorage({
+									key: 'userInfo',
+									data: info,
+									success: () => {
+										uni.switchTab({
+											url: '/pages/index/index'
+										});
+									},
+									
+								});
+							} else {
+								this.messageToggle('error', err.msg || '账户或密码错误！');
+							}
 						})
 						.catch(err => {
 							console.log(err);
 							this.messageToggle('error', err.msg || '账户或密码错误！');
+						})
+						.finally(() => {
 							this.loading = false;
 						});
 				})
@@ -83,7 +102,7 @@ export default {
 					console.log('表单错误信息：', err);
 				});
 		},
-
+		//提示信息
 		messageToggle(type, msg) {
 			this.msgType = type;
 			this.messageText = msg;

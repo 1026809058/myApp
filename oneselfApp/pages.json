@@ -40,6 +40,16 @@
 					"enablePullDownRefresh": false
 				}
 			}
+		},
+		{
+			"path": "pages/index/search/index",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"app-plus": {
+					"titleNView": false,
+					"enablePullDownRefresh": false
+				}
+			}
 		}
 	],
 	"tabBar": {
@@ -64,7 +74,8 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
-		"enablePullDownRefresh": false
+		"enablePullDownRefresh": false,
+		"autoscan":true
 
 
 	},

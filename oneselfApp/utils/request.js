@@ -14,10 +14,10 @@ const request = (options) => {
 			url: baseURL + options.url, //接口地址：前缀+方法中传入的地址
 			method: options.method || 'GET', //请求方法：传入的方法或者默认是“GET”
 			data: options.data || {}, //传递参数：传入的参数或者默认传递空集合
-			responseType: options.responseType || 'arraybuffer',
+			responseType: options.responseType || 'json',
 			headers: {
 				'Content-Type': contentType,
-				'Cookie': cookie,
+				'Cookie': cookie
 				},
 			//设置请求头token
 			// const token = store.getters['user/accessToken']
@@ -33,10 +33,10 @@ const request = (options) => {
 				// 	})
 				// }
 				// 如果不满足上述判断就输出数据
-				if (res.code !== 200) {
-					reject(res)
+				if (res.statusCode !== 200) {
+					reject(res.data)
 				}
-				resolve(res)
+				resolve(res.data)
 			},
 			// 这里的接口请求，如果出现问题就输出接口请求失败
 			fail: (err) => {

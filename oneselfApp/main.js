@@ -2,6 +2,7 @@ import App from './App'
 import Vuex from 'vuex'
 import store from './store'
 import player from '@/utils/player.js'
+import './route'
 
 // #ifndef VUE3
 import Vue from 'vue'
