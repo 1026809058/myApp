@@ -1,5 +1,5 @@
 <template>
-	<view class="top-bar" id="navBar">
+	<view class="top-bar ground-glass" id="navBar">
 		<view class="top-bar_left" v-if="left"><slot name="left"></slot></view>
 		<view class="top-bar_conten"><slot></slot></view>
 		<view class="top-bar_right" v-if="right"><slot name="right"></slot></view>
@@ -36,6 +36,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+@import '~@/static/style/mixin.scss';
 .top-bar {
 	padding-top: var(--status-bar-height);
 	display: flex;
@@ -59,5 +60,8 @@ export default {
 		width: 100rpx;
 		text-align: center;
 	}
+}
+.ground-glass{
+	 @include  ground-glass(2)
 }
 </style>
